@@ -8,7 +8,7 @@ const TaskRouter = express.Router()
 
 
 TaskRouter.post("/save/task", AuthUser, SaveTask)
-TaskRouter.get("/fetch/task/:userid", GetTask)
+TaskRouter.get("/fetch/task/:userid", AuthUser , GetTask)
 TaskRouter.get("/fetch/task/compleated", CompleatedTask)
 TaskRouter.get("/fetch/task/incompleated", IncompleatedTask)
 TaskRouter.delete("/task/delete/:id", DeleteTask)

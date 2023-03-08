@@ -8,29 +8,21 @@ function NavigationBar() {
     return (
         <div>
 
-            <Navbar bg="dark" expand="lg" className='bg-light navbar-dark'>
+            <Navbar bg="info" varient="light" expand="lg" >
                 <Container>
                     <Navbar.Brand href="#home">My Task Bar </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <LinkContainer to='/'>
-                                <Nav.Link > DashBord </Nav.Link>
+                                <Nav.Link > <b>DashBord</b>  </Nav.Link>
                             </LinkContainer>
-                            {/* <LinkContainer to='/create-task'>
-                                <Nav.Link >Create Task</Nav.Link>
-                            </LinkContainer>
-                            
-                            <LinkContainer to='/task-list'>
-                                <Nav.Link >Task List </Nav.Link>
-                            </LinkContainer> */}
-
                             <LinkContainer to='/about'>
-                                <Nav.Link >About </Nav.Link>
+                                <Nav.Link > <b>About</b> </Nav.Link>
                             </LinkContainer>
 
                             <LinkContainer to='/contact'>
-                                <Nav.Link >Contact Us  </Nav.Link>
+                                <Nav.Link ><b>Contact Us </b> </Nav.Link>
                             </LinkContainer>
 
                             <LinkContainer to='/career'>
@@ -45,12 +37,6 @@ function NavigationBar() {
                                 <Nav.Link >Register</Nav.Link>
                             </LinkContainer>
 
-
-
-
-
-
-
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -59,5 +45,6 @@ function NavigationBar() {
         </div>
     )
 }
+
 
 export default NavigationBar

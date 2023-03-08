@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Alert, Button, Container } from 'react-bootstrap'
 import NavigationBar2 from './Navigationbar2'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import swal from 'sweetalert'
 
 function UserProfile() {
 
@@ -13,9 +13,28 @@ function UserProfile() {
 
 
 
-    const logout = () =>{
-        navigate("/")
+    const logout = () => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let data = localStorage.getItem("data")
+                    console.log(data)
+                    data = null
+                    localStorage.setItem("data", JSON.stringify(data))
+
+                    navigate("/")
+                }
+            })
+
     }
+
+
     return (
         <div>
 
@@ -39,9 +58,9 @@ function UserProfile() {
 
                     <Button className='mx-3'> Edit Personal Details </Button>
                     <Button className='mx-3'> Change Password </Button>
-                    
+
                     <Button className='mx-3' onClick={logout}> Logout </Button>
-                    
+
 
                 </Container>
 

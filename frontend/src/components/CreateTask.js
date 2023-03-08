@@ -23,7 +23,9 @@ function CreateTask() {
     const [isfalse, setisFalse] = useState(false)
     const [test, settest] = useState(true)
 
-    const token = localStorage.getItem("token")
+    let token = localStorage.getItem("data")
+    token = JSON.parse(token)
+    token = token.token
 
 
     const validation = () => {
@@ -41,8 +43,7 @@ function CreateTask() {
         e.preventDefault()
 
         try {
-
-            let res = await save(task, userdata.token)
+            let res = await save(task,token)
             if (res.status === 200) {
                 swal({
                     title: "Yahhhh",

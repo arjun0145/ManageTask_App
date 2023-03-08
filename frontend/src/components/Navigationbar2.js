@@ -12,16 +12,16 @@ function NavigationBar2() {
 
     let xxx = () =>
     {
-        let check = prompt("enter 0 for logout ")
-        if ( check == 0 )
+        if (window.confirm("asdlfjlasf"))
         {
-            setvalue("/")
+            console.log("alok is don ")
         }
+
     }
 
     let navigation = ()=>{
 
-        navigate("/user/dashbord")
+        navigate("/user/dashboard")
 
     }
     return (
@@ -35,7 +35,7 @@ function NavigationBar2() {
                         <Nav className="me-auto">
 
                                                         
-                        <LinkContainer to='/user/dashbord'>
+                        <LinkContainer to='/user/dashboard'>
                                 <Nav.Link >Home</Nav.Link>
                             </LinkContainer>
                         
@@ -44,23 +44,9 @@ function NavigationBar2() {
                             </LinkContainer>
 
 
-
-
-
                             <LinkContainer to='/profile'>
                                 <Nav.Link > Profile </Nav.Link>
                             </LinkContainer>
-{/* 
-                            <LinkContainer to='/login'>
-                                <Nav.Link >Login</Nav.Link>
-                            </LinkContainer>
-
-                            <LinkContainer to='/register'>
-                                <Nav.Link >Register</Nav.Link>
-                            </LinkContainer> */}
-
-
-
 
 
                         </Nav>
