@@ -6,28 +6,16 @@ import Loginpage from './Loginpage'
 import NavigationBar from './NavigationBar'
 import UncontrolledExample from './UncontrolledExample'
 import CountTask from './CountTask'
+import Footer from './Footer'
 
 function DashBord(props) {
     return (
-        <div className=''>
-
+        <div>
             <NavigationBar></NavigationBar>
-
-
-            {/* <Header alertText="Welcome to My Task App , Get Happiness from Compleation Of Your Task  "
-                disc=' this is fullstack app which is created by mr govind bamaniya 
-             who is a great full stack developer '></Header> */}
-
-
             <Container className='mt-5'>
-
-
-
-
             <UncontrolledExample></UncontrolledExample>
-
-
             </Container>
+            <Footer/>
 
         </div >
     )

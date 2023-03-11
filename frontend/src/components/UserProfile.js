@@ -14,6 +14,7 @@ function UserProfile() {
 
 
     const logout = () => {
+
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -22,6 +23,7 @@ function UserProfile() {
             dangerMode: true,
         })
             .then((willDelete) => {
+                
                 if (willDelete) {
                     let data = localStorage.getItem("data")
                     console.log(data)

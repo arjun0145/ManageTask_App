@@ -7,7 +7,6 @@ import swal from 'sweetalert'
 
 function TaskList() {
 
-  let totaltask = 0;
   let x = localStorage.getItem("data")
   x = JSON.parse(x)
 
@@ -17,11 +16,11 @@ function TaskList() {
   const [data, setData] = useState([])
   const [id, setid] = useState(x.userdetails._id)
   const [current, setcurrent] = useState(x)
-  const [compleated,setcompleted] = useState()
+  const [compleated, setcompleted] = useState()
+
 
   const FetchTask = async () => {
     const res = await GetTask(id, x.token);
-    console.log(res)
     setData(res.data)
     setTasks(res.data.x)
   };
@@ -50,7 +49,7 @@ function TaskList() {
       buttons: true,
       dangerMode: true,
     })
-      .then ( async (willDelete) => {
+      .then(async (willDelete) => {
         if (willDelete) {
           await DeleteTask(x)
           FetchTask()
@@ -92,63 +91,39 @@ function TaskList() {
 
 
           {tasks.map((e) => {
-     (e.IsCompleated ? setcompleted("greenyellow") : setcompleted("red") )
+            //  (e.IsCompleated ? setcompleted("greenyellow") : setcompleted("red") )
             return (
-              
+
 
               <Col lg={4} className="my-2">
-                
-                
-                  <Card style={{ backgroundColor: compleated }}>
-                    <Card.Body>
-                      {e.IsCompleated ?
-                        <div> <p>Status -  <span className="text-success">Completed</span> </p></div>
-                        :
-                        <div> <p>Status -  <span className="text-danger">pending</span> </p></div>
-                      }
 
-                      <Card.Title>{e.name}</Card.Title>
-                      <Card.Text>
-                        {e.description}
-                        <br></br>
-                        {e.CreatedOn}
-                      </Card.Text>
-                      <Button variant="danger" className='btn-sm' onClick={() => {
-                        deleteTask(e._id)
-                      }}> delete task </Button>
-                      {!e.IsCompleated ?
-                        <Button className="mx-4 btn-sm" onClick={() => {
-                          markAsCompleated(e._id)
-                        }}> Mark as  Compleated</Button>
-                        : null
-                      }
-                    </Card.Body>
-                  </Card> :
-                  <Card style={{ backgroundColor: "orange" }}>
-                    <Card.Body>
-                      {e.IsCompleated ?
-                        <div> <p>Status -  <span className="text-success">Completed</span> </p></div>
-                        :
-                        <div> <p>Status -  <span className="text-danger">pending</span> </p></div>
-                      }
 
-                      <Card.Title>{e.name}</Card.Title>
-                      <Card.Text>
-                        {e.description}
-                        <br></br>
-                        {e.CreatedOn}
-                      </Card.Text>
-                      <Button variant="danger" className='btn-sm' onClick={() => {
-                        deleteTask(e._id)
-                      }}> delete task </Button>
-                      {!e.IsCompleated ?
-                        <Button className="mx-4 btn-sm" onClick={() => {
-                          markAsCompleated(e._id)
-                        }}> Mark as  Compleated</Button>
-                        : null
-                      }
-                    </Card.Body>
-                  </Card>
+                <Card style={{ }}>
+                  <Card.Body>
+                    {e.IsCompleated ?
+                      <div> <p>Status -  <span className="text-success">Completed</span> </p></div>
+                      :
+                      <div> <p>Status -  <span className="text-danger">pending</span> </p></div>
+                    }
+
+                    <Card.Title>{e.name}</Card.Title>
+                    <Card.Text>
+                      {e.description}
+                      <br></br>
+                      {e.CreatedOn}
+                    </Card.Text>
+                    <Button variant="danger" className='btn-sm' onClick={() => {
+                      deleteTask(e._id)
+                    }}> delete task </Button>
+                    {!e.IsCompleated ?
+                      <Button className="mx-4 btn-sm" onClick={() => {
+                        markAsCompleated(e._id)
+                      }}> Mark as  Compleated</Button>
+                      : null
+                    }
+                  </Card.Body>
+                </Card> 
+              
 
               </Col>
 
